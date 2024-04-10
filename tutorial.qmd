@@ -1,0 +1,247 @@
+---
+title: ACM Python Programming Event
+author: University of Scranton ACM Student Chapter
+execute: 
+  eval: false
+---
+
+# University of Scranton Association for Computing Machinery Student Chapter Python Programming Event
+
+## Table of Contents
+
+[Prerequisites](#prerequisites)
+
+[The Basics](#the-basics)
+
+[Classes and Objects](#classes-and-objects)
+
+[Libraries](#libraries)
+
+[Compilation vs. Interpretation](#compilation-vs-interpretation)
+
+## Background
+
+Duck programming
+
+Dropbox, Instagram, Spotify, and Reddit just to name a few
+
+Interpreted language (insert definition) compiled & executed at runtime
+
+Object-Oriented
+
+Many builtins are written in C, which means you can expect C-like performance when you run your code (unless your code is slow)
+
+### Prerequisites
+
+Python is a dynamically typed language that does the thing
+Maybe talk about duck programming here.
+
+If you don't have python, you can download it for your system [here](https://www.python.org/downloads/). Python files are created and saved with the `.py` extension.
+We trust you can get it set up on your IDE of choice.
+
+This tutorial is available in [this GitHub repository](https://github.com/BernardScottIII/acm_python_event). If you already know how, please clone it to your local machine and get set up to work with it.
+
+### The Basics
+
+Here is an example of primitive types.
+
+You can (should) statically type variables for improved readability. Doubles aren't a thing
+
+Interpreter will automatically convert types if possible???
+
+```{python}
+x = 10
+y = "My Variable"
+z = False
+pi = 3.14
+
+a: int = 5
+b: str = "My Typed Variable"
+c: bool = True
+e: float = 2.718
+```
+
+Here are more advanced data types that are built directly into python.
+
+Tuples are cool because of caching!
+
+```{python}
+my_list = [10, 20, 30]
+my_dictionary = {
+    "Key 1": "Value 1",
+    "Key 2": "Value 2",
+    }
+my_tuple = (1.11, 2.22, 3.33)
+```
+
+Elementary I/O
+
+format strings (f-strings)
+
+```{python}
+print("This is a print statement!")
+input("I am asking the user to type something then press enter ")
+
+user_input = input("I save what the user types by assigning it to a variable: ")
+print("Doing some calculations...")
+print(f"The result of the calcualtions are: {user_input}")
+```
+
+Flow control examples. Talk about how indentation must be strictly followed here.
+
+```{python}
+for i in range(10):
+    print(i)
+print("for-loop completed!")
+
+my_control_variable = 15
+while my_control_variable > 0:
+    print(my_control_variable)
+    my_control_variable -= 1
+print("while loop completed")
+```
+
+Functions are cool
+
+```{python}
+def append_fizz(text: str):
+    text += "fizz"
+    return text
+
+first_string = "fizz"
+second_string = "buzz"
+user_string = input("Call append_fizz() on: ")
+
+print(append_fizz(first_string))
+print(append_fizz(second_string))
+print(append_fizz(user_string))
+```
+
+### Classes and Objects
+
+talk about the init() function, the `self` parameter, and instance variables
+
+```{python}
+class MyExampleClass:
+    def __init__(self):
+        self.my_instance_variable = 10
+        self.another_instance_variable = "Instance String"
+
+    def example_observer_method(self) -> int:
+        return self.my_instance_variable
+```
+
+Create a simple object in a new file names `rectangle.py` and do things with it
+
+```{python}
+class Rectangle:
+    def __init__(self, 
+                 height: float, 
+                 width: float):
+        self.height = height
+        self.width = width
+        self.perimeter = ( 2 * height ) + ( 2 * width )
+        self.area = height * width
+
+    def get_height(self) -> float:
+        return self.height
+    
+    def get_width(self) -> float:
+        return self.width
+    
+    def get_perimeter(self):
+        # STUB, remove "pass"
+        pass
+    
+    def get_area(self):
+        # STUB, remove "pass"
+        pass
+```
+
+You can do what you'd typically expect you can do with objects, including passing them to and from functions
+
+Don't worry about the import statemnet. It'll work for everyone and we'll talk about them later.
+
+```{python}
+import math
+
+rectangle_1: Rectangle = Rectangle(3, 4)
+rectangle_2: Rectangle = Rectangle(5, 12)
+
+def calc_diagonal(rectangle: Rectangle) -> float:
+    height = 0 # STUB, replace 0
+    width = 0 # STUB, replace 0
+
+    return math.sqrt( ( height ** 2 )  + ( width ** 2 ) )
+
+print(calc_diagonal(rectangle_1))
+print(calc_diagonal(rectangle_2))
+```
+
+It is typical to have multiple files, each with a single object/class so other programmers can read and understand what you wrote
+
+### Libraries
+
+Thanks to the extensive community support, python has a vast suite of libraries which implement all sorts of functionality which allows python to be used in a variety of applications! This community support is one of the main reasons that it has become so popular!
+
+Python libraries can be written in languages other than python, including C, Rust, and C++.
+
+#### `requests` and Beautiful Soup (`bs4`)
+These two libraries are essential for getting and displaying data to and from websites.
+
+```{python}
+import requests
+
+sample_post_request = requests.post()
+
+sample_get_request = requests.get()
+
+import bs4
+
+# do things with bs4
+
+# scrape if there's colloquia today
+```
+
+#### `statistics`
+
+The statistics library is very useful for business-oriented applications. It has tremendous functionality including being able to produce a linear regression and covariance.
+
+```{python}
+import statistics
+
+# insert cool statistics code here
+```
+
+#### OpenCV (`cv2`)
+
+OpenCV is great for computer vision applications
+
+```{python}
+import cv2
+
+# insert flashy images
+```
+
+#### `numpy` and `matplotlib`
+
+A library essential for research applications. `numpy` provides support for high-order arrays and greatly optimizes large matrix operations. `matplotlib` works well with `numpy` and is used for visual representation of data.
+
+```{python}
+import numpy
+import matplotlib
+```
+
+### Compilation vs. Interpretation
+
+talk about that here. I know nothing about this
+
+#### Compilation
+
+#### Interpretation
+
+#### Performance
+_for performance reasons_
+
+## Wrap-Up
+if you want us to continue these sessions, in either the same language or a different language, please let us know in a survey
