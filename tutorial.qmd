@@ -51,9 +51,9 @@ Interpreter will automatically convert types if possible???
 
 ```{python}
 x = 10
-y = "My Variable"
-z = False
-pi = 3.14
+_argument_variable = "My Variable"
+variable_with_12345 = False
+3lectricity = 3.14
 
 a: int = 5
 b: str = "My Typed Variable"
@@ -131,7 +131,7 @@ class MyExampleClass:
         return self.my_instance_variable
 ```
 
-Create a simple object in a new file names `rectangle.py` and do things with it
+Create a simple object in a new file named `rectangle.py` and do things with it
 
 ```{python}
 class Rectangle:
@@ -192,15 +192,23 @@ These two libraries are essential for getting and displaying data to and from we
 ```{python}
 import requests
 
-sample_post_request = requests.post()
+us_debt_apr = requests.get("https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&filter=record_calendar_year:eq:2024,record_calendar_month:eq:04&sort=-record_calendar_day")
 
-sample_get_request = requests.get()
+print(us_debt_apr)
+print(us_debt_apr.json())
+print(us_debt_apr.json()["data"])
+print(us_debt_apr.json()["data"][0])
+print(us_debt_apr.json()["data"][0]["tot_pub_debt_out_amt"])
 
-import bs4
+from bs4 import BeautifulSoup
 
-# do things with bs4
+response = requests.get("https://en.wikipedia.org/wiki/Web_scraping")
 
-# scrape if there's colloquia today
+print(response.content)
+
+soup = BeautifulSoup(response.content, "html.parser")
+
+print(soup.title)
 ```
 
 #### `statistics`
@@ -210,17 +218,16 @@ The statistics library is very useful for business-oriented applications. It has
 ```{python}
 import statistics
 
-# insert cool statistics code here
-```
+us_debt = requests.get("https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&sort=-record_calendar_day")
 
-#### OpenCV (`cv2`)
+debt_vals = []
 
-OpenCV is great for computer vision applications
+for month in us_debt.json()["data"]:
+    debt_vals.append(float(month["tot_pub_debt_out_amt"]))
 
-```{python}
-import cv2
-
-# insert flashy images
+print(debt_vals)
+print(statistics.mean(debt_vals))
+print(statistics.stdev(debt_vals))
 ```
 
 #### `numpy` and `matplotlib`
@@ -228,8 +235,20 @@ import cv2
 A library essential for research applications. `numpy` provides support for high-order arrays and greatly optimizes large matrix operations. `matplotlib` works well with `numpy` and is used for visual representation of data.
 
 ```{python}
-import numpy
-import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+
+time = np.arange(len(debt_vals))
+
+# print(time)
+
+slope, intercept = np.polyfit(time,debt_vals,1)
+
+# print(slope, intercept)
+
+poly1d_fn = np.poly1d((slope, intercept)) 
+
+plt.plot(time, debt_vals,'bo',poly1d_fn(time), '--k')
 ```
 
 ### Compilation vs. Interpretation
