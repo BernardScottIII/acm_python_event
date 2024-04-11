@@ -145,7 +145,7 @@ $
 Objects are implemented in a similar fashion to Java, where one would create a class, ideally within its own `.py` file, for a single object. Every class contains a constructor, the `__init__()` function. This function must take the argument `self` to declare and instantiate instance variables. Assignment of instance variables takes place completely within the `__init__()` function. Python does not allow for the declaration of multiple constructors, (insert reasoning). However, you can supply default arguments to the lone constructor, which may or may not be used upon invoking the constructor.
 
 ```{python}
-# No need to copy!
+# No need to copy! For illustration purposes only.
 
 class MyExampleClass:
     def __init__(self):
@@ -241,12 +241,11 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 print(soup.title)
 ```
+If you're interested in working with fiscal data from the U.S. Treasury, refer to the API documentation [here](https://fiscaldata.treasury.gov/api-documentation/).
 
 #### `statistics`
 
-```
-Pre-installed, no download necessary!
-```
+`Pre-installed, no download necessary!`
 
 The statistics library is very useful for business-oriented applications. It has tremendous functionality including being able to produce a linear regression and covariance.
 
