@@ -38,11 +38,13 @@ Python is a dynamically typed language that does the thing
 If you don't have python, you can download it for your system [here](https://www.python.org/downloads/). Python files are created and saved with the `.py` extension.
 We trust you can get it set up on your IDE of choice.
 
-This tutorial is available in [this GitHub repository](https://github.com/BernardScottIII/acm_python_event). 
+This tutorial and solution files are available in [this GitHub repository](https://github.com/BernardScottIII/acm_python_event). 
 
 ^^ This should be displayed with GitHub Pages or other free static-website software!
 
 ### The Basics
+
+#### Variables and Data Types
 
 Here is an example of primitive types.
 
@@ -75,7 +77,7 @@ my_dictionary = {
 my_tuple = (1.11, 2.22, 3.33)
 ```
 
-Elementary I/O
+#### Elementary I/O
 
 format strings (f-strings)
 
@@ -87,6 +89,12 @@ user_input = input("I save what the user types by assigning it to a variable: ")
 print("Doing some calculations...")
 print(f"The result of the calcualtions are: {user_input}")
 ```
+
+#### Running a python program
+
+To run your python file, navigate to the directory the file is stored in, and simply type `python` _`filename`_`.py` and press enter.
+
+#### Flow Control
 
 Flow control examples. Talk about how indentation must be strictly followed here.
 
@@ -101,6 +109,8 @@ while my_control_variable > 0:
     my_control_variable -= 1
 print("while loop completed")
 ```
+
+#### Functions
 
 Functions are cool
 
