@@ -115,24 +115,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Python is an interpreted programming language, meaning that every line of any given file is read and immediately executed, as opposed to being compiled to an intermediate format before execution. It features numerous components of other modern programming languages including dynamic typing, high-level data types, object-orientation, and classes. Its simple syntax and numerous third party libraries are what make the language powerful and versatile.</p>
 <p>Duck programming</p>
 <p>Dropbox, Instagram, Spotify, and Reddit just to name a few</p>
-<p>Interpreted language (insert definition) compiled &amp; executed at runtime</p>
-<p>Object-Oriented</p>
 <p>Many builtins are written in C, which means you can expect C-like performance when you run your code (unless your code is slow)</p>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
 <p>Python is a dynamically typed language that does the thing</p>
 <p>If you don’t have python, you can download it for your system <a href="https://www.python.org/downloads/">here</a>. Python files are created and saved with the <code>.py</code> extension. We trust you can get it set up on your IDE of choice.</p>
-<p>This tutorial is available in <a href="https://github.com/BernardScottIII/acm_python_event">this GitHub repository</a>.</p>
+<p>This tutorial and solution files are available in <a href="https://github.com/BernardScottIII/acm_python_event">this GitHub repository</a>.</p>
 <p>^^ This should be displayed with GitHub Pages or other free static-website software!</p>
 </section>
 <section id="the-basics" class="level3">
 <h3 class="anchored" data-anchor-id="the-basics">The Basics</h3>
+<section id="variables-and-data-types" class="level4">
+<h4 class="anchored" data-anchor-id="variables-and-data-types">Variables and Data Types</h4>
 <p>Here is an example of primitive types.</p>
 <p>You can (should) statically type variables for improved readability. Doubles aren’t a thing</p>
 <p>Interpreter will automatically convert types if possible???</p>
-<div id="48bdc0ce" class="cell" data-execution_count="1">
+<div id="52359878" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>_argument_variable <span class="op">=</span> <span class="st">"My Variable"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>variable_12345 <span class="op">=</span> <span class="va">False</span></span>
@@ -145,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Here are more advanced data types that are built directly into python.</p>
 <p>Tuples are cool because of caching!</p>
-<div id="4e684aca" class="cell" data-execution_count="2">
+<div id="4f2dd487" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_dictionary <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Key 1"</span>: <span class="st">"Value 1"</span>,</span>
@@ -153,9 +154,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="fl">1.11</span>, <span class="fl">2.22</span>, <span class="fl">3.33</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Elementary I/O</p>
+</section>
+<section id="elementary-io" class="level4">
+<h4 class="anchored" data-anchor-id="elementary-io">Elementary I/O</h4>
 <p>format strings (f-strings)</p>
-<div id="23d8c532" class="cell" data-execution_count="3">
+<div id="081844aa" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is a print statement!"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">input</span>(<span class="st">"I am asking the user to type something then press enter "</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -163,8 +166,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Doing some calculations..."</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The result of the calcualtions are: </span><span class="sc">{</span>user_input<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="running-a-python-program" class="level4">
+<h4 class="anchored" data-anchor-id="running-a-python-program">Running a python program</h4>
+<p>To run your python file, navigate to the directory the file is stored in, and simply type <code>python</code> <em><code>filename</code></em><code>.py</code> and press enter.</p>
+</section>
+<section id="flow-control" class="level4">
+<h4 class="anchored" data-anchor-id="flow-control">Flow Control</h4>
 <p>Flow control examples. Talk about how indentation must be strictly followed here.</p>
-<div id="d65dbced" class="cell" data-execution_count="4">
+<div id="097104f2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"for-loop completed!"</span>)</span>
@@ -175,8 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    my_control_variable <span class="op">-=</span> <span class="dv">1</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"while loop completed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="functions" class="level4">
+<h4 class="anchored" data-anchor-id="functions">Functions</h4>
 <p>Functions are cool</p>
-<div id="e8c46b01" class="cell" data-execution_count="5">
+<div id="66c26b6b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> append_fizz(text: <span class="bu">str</span>):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">+=</span> <span class="st">"fizz"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text</span>
@@ -189,6 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(append_fizz(second_string))</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(append_fizz(user_string))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="debuggingtroubleshooting-with-the-terminal" class="level4">
 <h4 class="anchored" data-anchor-id="debuggingtroubleshooting-with-the-terminal">Debugging/Troubleshooting with the terminal</h4>
 <p>Useful note: you can quickly write and run python code in the terminal/cli by typing “python”. After you enter that command, you’ll be brought to a python editor completely within the terminal/command line interface!</p>
@@ -202,8 +216,8 @@ $</code></pre>
 <section id="classes-and-objects" class="level3">
 <h3 class="anchored" data-anchor-id="classes-and-objects">Classes and Objects</h3>
 <p>Objects are implemented in a similar fashion to Java, where one would create a class, ideally within its own <code>.py</code> file, for a single object. Every class contains a constructor, the <code>__init__()</code> function. This function must take the argument <code>self</code> to declare and instantiate instance variables. Assignment of instance variables takes place completely within the <code>__init__()</code> function. Python does not allow for the declaration of multiple constructors, (insert reasoning). However, you can supply default arguments to the lone constructor, which may or may not be used upon invoking the constructor.</p>
-<div id="c23f3736" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No need to copy!</span></span>
+<div id="79d8f7da" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No need to copy! For illustration purposes only.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyExampleClass:</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -214,7 +228,7 @@ $</code></pre>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.my_instance_variable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Create a simple object in a new file named <code>rectangle.py</code> and do things with it</p>
-<div id="1199730f" class="cell" data-execution_count="7">
+<div id="3850dcaa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                 height: <span class="bu">float</span>, </span>
@@ -237,7 +251,7 @@ $</code></pre>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># STUB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can do what you’d typically expect you can do with objects, including passing them to and from functions</p>
-<div id="4c7e671f" class="cell" data-execution_count="8">
+<div id="9420cc2d" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>rectangle_1: Rectangle <span class="op">=</span> Rectangle(<span class="dv">3</span>, <span class="dv">4</span>)</span>
@@ -265,7 +279,7 @@ $ pip install beautifulsoup4</code></pre>
 <section id="requests-and-beautiful-soup-bs4" class="level4">
 <h4 class="anchored" data-anchor-id="requests-and-beautiful-soup-bs4"><code>requests</code> and Beautiful Soup (<code>bs4</code>)</h4>
 <p>These two libraries are essential for getting and displaying data to and from websites.</p>
-<div id="df2cc28c" class="cell" data-execution_count="9">
+<div id="380cbdf7" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>us_debt_apr <span class="op">=</span> requests.get(<span class="st">"https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&amp;filter=record_calendar_year:eq:2024,record_calendar_month:eq:04&amp;sort=-record_calendar_day"</span>)</span>
@@ -286,24 +300,25 @@ $ pip install beautifulsoup4</code></pre>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(soup.title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><em>If you’re interested in working with fiscal data from the U.S. Treasury, refer to the API documentation <a href="https://fiscaldata.treasury.gov/api-documentation/">here</a>.</em></p>
 </section>
 <section id="statistics" class="level4">
 <h4 class="anchored" data-anchor-id="statistics"><code>statistics</code></h4>
-<pre><code>Pre-installed, no download necessary!</code></pre>
+<p><code>Pre-installed, no download necessary!</code></p>
 <p>The statistics library is very useful for business-oriented applications. It has tremendous functionality including being able to produce a linear regression and covariance.</p>
-<div id="037f1eed" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>us_debt <span class="op">=</span> requests.get(<span class="st">"https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&amp;sort=-record_calendar_day"</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>debt_vals <span class="op">=</span> []</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> month <span class="kw">in</span> us_debt.json()[<span class="st">"data"</span>]:</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    debt_vals.append(<span class="bu">float</span>(month[<span class="st">"tot_pub_debt_out_amt"</span>]))</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(debt_vals)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(statistics.mean(debt_vals))</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(statistics.stdev(debt_vals))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4d3a872b" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>us_debt <span class="op">=</span> requests.get(<span class="st">"https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&amp;sort=-record_calendar_day"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>debt_vals <span class="op">=</span> []</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> month <span class="kw">in</span> us_debt.json()[<span class="st">"data"</span>]:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    debt_vals.append(<span class="bu">float</span>(month[<span class="st">"tot_pub_debt_out_amt"</span>]))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(debt_vals)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(statistics.mean(debt_vals))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(statistics.stdev(debt_vals))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="numpy-and-matplotlib" class="level4">
@@ -311,21 +326,21 @@ $ pip install beautifulsoup4</code></pre>
 <pre class="{bash}"><code>$ pip install numpy
 $ pip install matplotlib</code></pre>
 <p>Two libraries essential for research applications. <code>numpy</code> provides support for high-order arrays and greatly optimizes large matrix operations. <code>matplotlib</code> works well with <code>numpy</code> and is used for visual representation of data.</p>
-<div id="0000003a" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="bu">len</span>(debt_vals))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print(time)</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>slope, intercept <span class="op">=</span> np.polyfit(time,debt_vals,<span class="dv">1</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print(slope, intercept)</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>poly1d_fn <span class="op">=</span> np.poly1d((slope, intercept)) </span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>plt.plot(time, debt_vals,<span class="st">'bo'</span>,poly1d_fn(time), <span class="st">'--k'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="848f0ca9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="bu">len</span>(debt_vals))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print(time)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>slope, intercept <span class="op">=</span> np.polyfit(time,debt_vals,<span class="dv">1</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print(slope, intercept)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>poly1d_fn <span class="op">=</span> np.poly1d((slope, intercept)) </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>plt.plot(time, debt_vals,<span class="st">'bo'</span>,poly1d_fn(time), <span class="st">'--k'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

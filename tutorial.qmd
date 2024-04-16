@@ -21,13 +21,11 @@ execute:
 
 ## Background
 
+Python is an interpreted programming language, meaning that every line of any given file is read and immediately executed, as opposed to being compiled to an intermediate format before execution. It features numerous components of other modern programming languages including dynamic typing, high-level data types, object-orientation, and classes. Its simple syntax and numerous third party libraries are what make the language powerful and versatile.
+
 Duck programming
 
 Dropbox, Instagram, Spotify, and Reddit just to name a few
-
-Interpreted language (insert definition) compiled & executed at runtime
-
-Object-Oriented
 
 Many builtins are written in C, which means you can expect C-like performance when you run your code (unless your code is slow)
 
@@ -48,20 +46,13 @@ This tutorial and solution files are available in [this GitHub repository](https
 
 Here is an example of primitive types.
 
-You can (should) statically type variables for improved readability. Doubles aren't a thing
-
-Interpreter will automatically convert types if possible???
+Doubles aren't a thing
 
 ```{python}
 x = 10
 _argument_variable = "My Variable"
 variable_12345 = False
 3lectric_City = 3.14 # <- Invalid!
-
-a: int = 5
-b: str = "My Typed Variable"
-c: bool = True
-e: float = 2.718
 ```
 
 Here are more advanced data types that are built directly into python.
@@ -75,6 +66,14 @@ my_dictionary = {
     "Key 2": "Value 2",
     }
 my_tuple = (1.11, 2.22, 3.33)
+```
+
+#### Useful Type Conversions
+
+Python can't convert anything to anything, but here's some useful and conveinent conversions Python automatically takes care of
+
+```{python}
+
 ```
 
 #### Elementary I/O
@@ -96,12 +95,16 @@ To run your python file, navigate to the directory the file is stored in, and si
 
 #### Flow Control
 
-Flow control examples. Talk about how indentation must be strictly followed here.
+Flow control examples. Talk about how indentation must be strictly followed here. best practice is to use 4 spaces
 
 ```{python}
+# Replace with a list
 for i in range(10):
     print(i)
 print("for-loop completed!")
+
+# introduce range, then list(range) then use range in a for loop
+# Python can create things which provide things to you in repeated calls
 
 my_control_variable = 15
 while my_control_variable > 0:
@@ -152,7 +155,7 @@ class MyExampleClass:
         self.my_instance_variable = 10
         self.another_instance_variable = "Instance String"
 
-    def example_observer_method(self) -> int:
+    def example_observer_method(self):
         return self.my_instance_variable
 ```
 
@@ -160,18 +163,16 @@ Create a simple object in a new file named `rectangle.py` and do things with it
 
 ```{python}
 class Rectangle:
-    def __init__(self, 
-                 height: float, 
-                 width: float):
+    def __init__(self, height, width):
         self.height = height
         self.width = width
         self.perimeter = ( 2 * height ) + ( 2 * width )
         self.area = height * width
 
-    def get_height(self) -> float:
+    def get_height(self):
         return self.height
     
-    def get_width(self) -> float:
+    def get_width(self):
         return self.width
     
     def get_perimeter(self):
@@ -190,7 +191,7 @@ import math
 rectangle_1: Rectangle = Rectangle(3, 4)
 rectangle_2: Rectangle = Rectangle(5, 12)
 
-def calc_diagonal(rectangle: Rectangle) -> float:
+def calc_diagonal(rectangle: Rectangle):
     height = # STUB
     width = # STUB
 
@@ -209,6 +210,8 @@ Thanks to the extensive community support, python has a vast suite of libraries 
 Python libraries can be written in languages other than python, including C, Rust, and C++.
 
 Since many popular libraries are created by third parties, they are not installed automatically with your installation of python. If you installed python from [python.org](https://www.python.org/downloads/), then `pip` (Preffered Installer Program) will be installed with python. `pip` can install packages from `PyPI` (The Python Package Index), where most third-party packages are available.
+
+Mention Anaconda python distro and Conda package manager
 
 To install your first packages, run these two commands in your terminal/cli!
 
@@ -241,16 +244,19 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 print(soup.title)
 ```
-If you're interested in working with fiscal data from the U.S. Treasury, refer to the API documentation [here](https://fiscaldata.treasury.gov/api-documentation/).
+_If you're interested in working with fiscal data from the U.S. Treasury, refer to the API documentation [here](https://fiscaldata.treasury.gov/api-documentation/)._
 
 #### `statistics`
 
-`Pre-installed, no download necessary!`
+`Standard library, no download necessary!`
 
 The statistics library is very useful for business-oriented applications. It has tremendous functionality including being able to produce a linear regression and covariance.
 
 ```{python}
 import statistics
+
+# put this data in a csv
+# use zip()
 
 us_debt = requests.get("https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?fields=record_calendar_year,record_calendar_month,record_calendar_day,tot_pub_debt_out_amt&sort=-record_calendar_day")
 
